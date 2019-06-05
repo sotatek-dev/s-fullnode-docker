@@ -1,0 +1,15 @@
+version: '3'
+services:
+  qtumcore:
+    build: .
+    volumes:
+      - qtumcoreblocks:/home/node/app/qtumNode/data/blocks
+      - qtumcoretestnet:/home/node/app/qtumNode/data/testnet3
+    ports:
+      - '3001:3001'
+      - '28332:28332'
+      - '13888:13888'
+
+volumes:
+  qtumcoreblocks:
+  qtumcoretestnet:

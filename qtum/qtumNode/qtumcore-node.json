@@ -1,0 +1,36 @@
+{
+  "network": "mainnet",
+  "port": 3001,
+  "services": ["qtumd", "qtum-insight-api", "qtum-explorer", "web"],
+  "servicesConfig": {
+    "qtum-explorer": {
+      "apiPrefix": "api"
+    },
+    "qtum-insight-api": {
+      "routePrefix": "api",
+      "rateLimiterOptions": {
+        "whitelist": ["123.456.12.34", "::ffff:123.456.12.34"],
+        "whitelistLimit": 9999999,
+        "limit": 200000,
+        "interval": 60000,
+        "banInterval": 60000
+      },
+      "db": {
+        "host": "127.0.0.1",
+        "port": "27017",
+        "database": "qtum-api-testnet",
+        "user": "",
+        "password": ""
+      },
+      "erc20": {
+        "updateFromBlockHeight": 0
+      }
+    },
+    "qtumd": {
+      "spawn": {
+        "datadir": "./data",
+        "exec": "/usr/local/bin/qtumd"
+      }
+    }
+  }
+}
